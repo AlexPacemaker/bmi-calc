@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import styles from "./BMI.module.scss";
 
 const BMI = () => {
@@ -7,8 +7,15 @@ const BMI = () => {
   const [output, setOutput] = useState("");
   const [bmi, setBmi] = useState("");
 
-  const handleWeightChange = (e) => setWeight(e.target.value);
-  const handleHeightChange = (e) => setHeight(e.target.value);
+  const handleInputChange = (field, value) => {
+    if (field === "weight") {
+      setWeight(value);
+    } else if (field === "height") {
+      setHeight(value);
+    }
+    setOutput("");
+    setBmi("");
+  };
 
   const calculateBMI = (e) => {
     e.preventDefault();
@@ -17,9 +24,17 @@ const BMI = () => {
         const heightM = height / 100;
         let bmi = weight / (heightM * heightM);
         setBmi(bmi.toFixed(2));
-  
+        if (bmi < 18.5) {
+          setOutput("Недостаток веса");
+        } else if (bmi > 18.5 && bmi <= 24.9) {
+          setOutput("Нормальный вес");
+        } else if (bmi > 25 && bmi <= 29.9) {
+          setOutput("Избыточный вес");
+        } else if (bmi > 30) {
+          setOutput("Ожирение!");
+        }
       } else {
-        setBmi(null);
+        setBmi("");
       }
     })();
   };
@@ -33,7 +48,7 @@ const BMI = () => {
           <input
             type='number'
             value={weight}
-            onChange={handleWeightChange}
+            onChange={(e) => handleInputChange("weight", e.target.value)}
             placeholder='type your weight'
           />
         </label>
@@ -43,7 +58,7 @@ const BMI = () => {
           <input
             type='number'
             value={height}
-            onChange={handleHeightChange}
+            onChange={(e) => handleInputChange("height", e.target.value)}
             placeholder='type your height'
           />
         </label>
