@@ -1,20 +1,27 @@
-import React, { useState} from "react";
+import React from "react";
 import styles from "./BMI.module.scss";
+import {
+  setBmi,
+  setHeight,
+  setOutput,
+  setWeight,
+} from "../../redux/slices/bmiSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const BMI = () => {
-  const [weight, setWeight] = useState("");
-  const [height, setHeight] = useState("");
-  const [output, setOutput] = useState("");
-  const [bmi, setBmi] = useState("");
+  const { weight, height, output, bmi } = useSelector(
+    (state) => state.bmiSlice
+  );
+  const dispatch = useDispatch();
 
   const handleInputChange = (field, value) => {
     if (field === "weight") {
-      setWeight(value);
+      dispatch(setWeight(value));
     } else if (field === "height") {
-      setHeight(value);
+      dispatch(setHeight(value));
     }
-    setOutput("");
-    setBmi("");
+    dispatch(setOutput(""));
+    dispatch(setBmi(""));
   };
 
   const calculateBMI = (e) => {
@@ -23,18 +30,18 @@ const BMI = () => {
       if (weight && height) {
         const heightM = height / 100;
         let bmi = weight / (heightM * heightM);
-        setBmi(bmi.toFixed(2));
+        dispatch(setBmi(bmi.toFixed(2)));
         if (bmi < 18.5) {
-          setOutput("Недостаток веса");
+          dispatch(setOutput("Недостаток веса"));
         } else if (bmi > 18.5 && bmi <= 24.9) {
-          setOutput("Нормальный вес");
+          dispatch(setOutput("Нормальный вес"));
         } else if (bmi > 25 && bmi <= 29.9) {
-          setOutput("Избыточный вес");
+          dispatch(setOutput("Избыточный вес"));
         } else if (bmi > 30) {
-          setOutput("Ожирение!");
+          dispatch(setOutput("Ожирение!"));
         }
       } else {
-        setBmi("");
+        dispatch(setBmi(""));
       }
     })();
   };
