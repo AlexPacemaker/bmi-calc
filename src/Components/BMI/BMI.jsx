@@ -34,33 +34,33 @@ const BMI = () => {
     <div className={styles.container}>
       <form onSubmit={handleSubmit}>
         <label className={styles.formElement}>
-          Weight (kg):
+          Вес (кг):
           <br />
           <input
             type='number'
             value={weight}
             onChange={(e) => handleInputChange("weight", e.target.value)}
-            placeholder='type your weight'
+            placeholder='напишите ваш вес'
           />
         </label>
         <label className={styles.formElement}>
-          Height (cm):
+          Рост (см):
           <br />
           <input
             type='number'
             value={height}
             onChange={(e) => handleInputChange("height", e.target.value)}
-            placeholder='type your height'
+            placeholder='напишите ваш рост'
           />
         </label>
         <button className={styles.btn} type='submit'>
-          Calculate BMI
+          Вычислить BMI
         </button>
       </form>
       <div className={styles.outputContainer}>
-        <div className={styles.output}>{<p>Your BMI is {bmi}</p>}</div>
+        <div className={styles.output}>{<p>Ваш BMI: {bmi}</p>}</div>
         <div className={styles.output}>
-          <p>Recomendation: {output}</p>
+          <p>Результат: {output}</p>
         </div>
       </div>
     </div>
