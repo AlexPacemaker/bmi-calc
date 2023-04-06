@@ -2,7 +2,7 @@
   "name": "bmi-calc",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://alexpacemaker.github.io/bmi-calc",
+  "homepage": "https://alexpacemaker.github.io/bmi-calc/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.2",
     "@testing-library/jest-dom": "^5.16.5",

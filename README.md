@@ -16,6 +16,6 @@
     - CSS-Модули для лучшей организации CSS
     - адаптивная верстка
 
-Результат работы на Github Pages: 
+Результат работы на Github Pages:
 
-https://github.com/AlexPacemaker/bmi-calc
+https://alexpacemaker.github.io/bmi-calc/
