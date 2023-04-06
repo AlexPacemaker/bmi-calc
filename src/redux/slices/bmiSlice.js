@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { RootState } from "../store";
 
 const initialState = {
   weight: "",
@@ -25,6 +26,8 @@ export const bmiSlice = createSlice({
     },
   },
 });
+
+export const bmiData = (state) => state.bmiSlice;
 
 export const {
   weight,

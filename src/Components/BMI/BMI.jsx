@@ -5,14 +5,13 @@ import {
   setHeight,
   setOutput,
   setWeight,
+  bmiData,
 } from "../../redux/slices/bmiSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { calculateBMI } from "../../utils/calc";
 
 const BMI = () => {
-  const { weight, height, output, bmi } = useSelector(
-    (state) => state.bmiSlice
-  );
+  const { weight, height, output, bmi } = useSelector(bmiData);
   const dispatch = useDispatch();
 
   const handleInputChange = (field, value) => {
