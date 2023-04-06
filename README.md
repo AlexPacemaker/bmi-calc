@@ -17,4 +17,5 @@
     - адаптивная верстка
 
 Результат работы на Github Pages: 
+
 https://github.com/AlexPacemaker/bmi-calc
