@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/bmi-calc/static/css/main.d3377336.css",
+    "main.js": "/bmi-calc/static/js/main.89ec8c66.js",
+    "static/media/Montserrat-SemiBold.ttf": "/bmi-calc/static/media/Montserrat-SemiBold.04af9a9e62bb4c47bd55.ttf",
+    "static/media/Montserrat-Regular.ttf": "/bmi-calc/static/media/Montserrat-Regular.ac98a5f5ca71180fe293.ttf",
+    "static/media/pexels-pixabay-40751.jpg": "/bmi-calc/static/media/pexels-pixabay-40751.2de06d145d8184ff07e8.jpg",
+    "index.html": "/bmi-calc/index.html",
+    "main.d3377336.css.map": "/bmi-calc/static/css/main.d3377336.css.map",
+    "main.89ec8c66.js.map": "/bmi-calc/static/js/main.89ec8c66.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d3377336.css",
+    "static/js/main.89ec8c66.js"
+  ]
+}
