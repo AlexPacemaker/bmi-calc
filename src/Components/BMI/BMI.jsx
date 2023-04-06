@@ -56,11 +56,11 @@ const BMI = () => {
           />
         </label>
         <button className={styles.btn} type='submit'>
-          Вычислить BMI
+          Вычислить ИМТ
         </button>
       </form>
       <div className={styles.outputContainer}>
-        <div className={styles.output}>{<p>Ваш BMI: {bmi}</p>}</div>
+        <div className={styles.output}>{<p>Ваш ИМТ: {bmi}</p>}</div>
         <div className={styles.output}>
           <p>Результат: {output}</p>
         </div>
