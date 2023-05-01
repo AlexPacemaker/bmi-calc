@@ -32,6 +32,7 @@ const BMI = () => {
     calculateBMI(weight, height, dispatch, setBmi, setOutput);
   };
 
+  //возвращение jsx разметки с использование логики приложения
   return (
     <div className={styles.container}>
       <form onSubmit={handleSubmit}>
