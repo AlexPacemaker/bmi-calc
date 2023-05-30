@@ -10,13 +10,18 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { calculateBMI } from "../../utils/calc";
 
+interface InputTypes {
+  field: "weight" | "height";
+  value: number;
+}
+
 //Создаем функц.компонент, с основой логикой приложения
-const BMI = () => {
+const BMI: React.FC = () => {
   const { weight, height, output, bmi } = useSelector(bmiData);
   const dispatch = useDispatch();
 
   // Эта функция обрабатывает изменения вводимых пользователем значений в полях веса и роста. Если значение изменено в поле веса, функция отправляет действие "setWeight" с новым значением в хранилище redux. Если значение изменено в поле роста, функция отправляет действие "setHeight" с новым значением в хранилище redux. Затем функция отправляет действие "setOutput" и "setBmi", чтобы очистить вывод, который может быть отображен на странице.
-  const handleInputChange = (field, value) => {
+  const handleInputChange = ({ field, value }: InputTypes) => {
     if (field === "weight") {
       dispatch(setWeight(value));
     } else if (field === "height") {
@@ -27,7 +32,7 @@ const BMI = () => {
   };
 
   //Эта функция обрабатывает отправку формы, используемой для расчета индекса массы тела (BMI) на основе данных о весе и росте пользователя. Она вызывает функцию `calculateBMI`, передавая ей значения веса и роста, объект dispatch и две функции для сохранения результата расчета и вывода сообщения об ошибке. Функция `e.preventDefault()` используется для предотвращения перезагрузки страницы при отправке формы.
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     calculateBMI(weight, height, dispatch, setBmi, setOutput);
   };
@@ -42,7 +47,9 @@ const BMI = () => {
           <input
             type='number'
             value={weight}
-            onChange={(e) => handleInputChange("weight", e.target.value)}
+            onChange={(e) =>
+              handleInputChange({ field: "weight", value: +e.target.value })
+            }
             placeholder='напишите ваш вес'
           />
         </label>
@@ -52,7 +59,9 @@ const BMI = () => {
           <input
             type='number'
             value={height}
-            onChange={(e) => handleInputChange("height", e.target.value)}
+            onChange={(e) =>
+              handleInputChange({ field: "height", value: +e.target.value })
+            }
             placeholder='напишите ваш рост'
           />
         </label>
