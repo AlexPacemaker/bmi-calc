@@ -1,6 +1,7 @@
 ## This project was created using the following technologies:
 
     - React 18  as main library
+    - TypeScript
     - Redux Toolkit  as state-manager
     - React Hooks  to manage the state of components
     - Prettier  to format code
@@ -9,6 +10,7 @@
     - adaptive layout
 
     - React 18 в качестве основной библиотеки
+    - TypeScript
     - Redux Toolkit в качестве стейт менеджера
     - Хуки React  для управления состоянием компонентов
     - Prettier для форматирования кода
