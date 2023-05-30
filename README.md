@@ -10,7 +10,7 @@
     - adaptive layout
 
     - React 18 в качестве основной библиотеки
-    - TypeScript
+    - TypeScript (весь React, Redux)
     - Redux Toolkit в качестве стейт менеджера
     - Хуки React  для управления состоянием компонентов
     - Prettier для форматирования кода
