@@ -3,16 +3,16 @@
 import { AnyAction, Dispatch } from "@reduxjs/toolkit";
 
 export const calculateBMI = (
-  weight: number | null | undefined,
-  height: number | null | undefined,
+  weight: number | string,
+  height: number | string,
   dispatch: Dispatch<AnyAction>,
   setBmi: Function,
   setOutput: Function
 ) => {
   (() => {
     if (weight && height) {
-      const heightM = height / 100;
-      let bmi = weight / (heightM * heightM);
+      const heightM = +height / 100;
+      let bmi = +weight / (heightM * heightM);
       dispatch(setBmi(bmi.toFixed(2)));
       if (bmi < 18.5) {
         dispatch(setOutput("Недостаток веса"));
