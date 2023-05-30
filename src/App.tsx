@@ -1,12 +1,13 @@
-import "./App.css";
+import React from "react";
 import BMI from "./Components/BMI/BMI";
 
-function App() {
+//сборка проекта в App
+const App: React.FC = () => {
   return (
     <div>
       <BMI />
     </div>
   );
-}
+};
 
 export default App;
