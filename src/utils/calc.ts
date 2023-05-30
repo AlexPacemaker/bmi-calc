@@ -1,6 +1,14 @@
 // Эта функция вычисляет индекс массы тела (ИМТ) по введенным пользователем значениям веса и роста. Результат сохраняется с помощью функций `setBmi` и `setOutput`, которые передаются в качестве аргументов. Также функция использует функцию `dispatch`, которая позволяет изменять состояние приложения в Redux. ИМТ может быть использован для оценки того, насколько здоровым является вес человека. Функция также выдаёт один из четырёх возможных текстовых комментариев о состоянии веса, зависящий от полученного результата.
 
-export const calculateBMI = (weight, height, dispatch, setBmi, setOutput) => {
+import { AnyAction, Dispatch } from "@reduxjs/toolkit";
+
+export const calculateBMI = (
+  weight: number | null | undefined,
+  height: number | null | undefined,
+  dispatch: Dispatch<AnyAction>,
+  setBmi: Function,
+  setOutput: Function
+) => {
   (() => {
     if (weight && height) {
       const heightM = height / 100;
